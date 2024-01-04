@@ -3,15 +3,21 @@ yum install java-1.8.0-openjdk.x86_64 wget -y
 mkdir -p /opt/nexus/   
 mkdir -p /tmp/nexus/                           
 cd /tmp/nexus/
+
+# Creates a variable for nexus URL
 NEXUSURL="https://download.sonatype.com/nexus/3/latest-unix.tar.gz"
+
 wget $NEXUSURL -O nexus.tar.gz
 sleep 10
+
 EXTOUT=`tar xzvf nexus.tar.gz`
 NEXUSDIR=`echo $EXTOUT | cut -d '/' -f1`
 sleep 5
+
 rm -rf /tmp/nexus/nexus.tar.gz
 cp -r /tmp/nexus/* /opt/nexus/
 sleep 5
+
 useradd nexus
 chown -R nexus.nexus /opt/nexus 
 cat <<EOT>> /etc/systemd/system/nexus.service
