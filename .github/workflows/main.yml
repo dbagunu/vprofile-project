@@ -5,7 +5,7 @@ env:
   ECR_REPOSITORY: actapp
   ECS_SERVICE: vproAppActionsSVC
   ECS_CLUSTER: vproprod
-  ECS_TASK_DEFINITION: aws-files/taskdefinition.yaml
+  ECS_TASK_DEFINITION: aws-files/taskdefinition.json
   CONTAINER_NAME: vproapp
 
 jobs:
